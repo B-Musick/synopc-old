@@ -1,0 +1,46 @@
+@startuml 
+
+    class Author {
+        firstName: String 
+        lastName: String 
+        age: Integer 
+        birthdate: Date 
+        books: Array
+    }
+    
+    Book "0..*" - "1..*" Author
+
+    class Book {
+        author: Author 
+        title: String 
+        publishDate: Date 
+        ISBN: Integer
+        image: String
+        synopsis: Synopsis 
+    }
+
+    class Synopsis {
+        book: Book
+        author: User
+        body: String
+        date: Date
+        rating: Integer
+        likes: Like
+    }
+    Book "0..*" - "1" Synopsis
+    
+    class User{
+        username: String
+        password: String
+        firstName: String
+        lastName: String
+        email: String
+    }
+
+    class Like{
+        synopsis_id: Synopsis 
+        rating: Integer 
+        ips: Array
+        
+    }
+@enduml
